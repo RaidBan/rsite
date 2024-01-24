@@ -30,7 +30,8 @@ def rasp():
     for j in ls:
         a = re.search(r'docx$', j)
         if a != None:
-            lw.append(j)
+            b = j.split('.')
+            lw.append(b[0])
     for i in lw:
         url = f"<a href=\"/rasp/{i}\">{i}</a><br>"
         uri += url
@@ -67,11 +68,11 @@ def indexs():
 
 @app.route("/rasp/<n>")
 def index(n):
-    try:
-        asd = tohtml(n)
-        return render_template(asd)
-    finally:
-        return Response("Данного файла не существует", status=400) # mimetype='application/json')
+    #try:
+    asd = tohtml(n)
+    return render_template(asd)
+    #finally:
+     #   return Response("Данного файла не существует", status=400)
 
 
 if __name__ == "__main__":
