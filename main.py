@@ -68,11 +68,11 @@ def indexs():
 
 @app.route("/rasp/<n>")
 def index(n):
-    #try:
-    asd = tohtml(n)
-    return render_template(asd)
-    #finally:
-     #   return Response("Данного файла не существует", status=400)
+    try:
+       asd = tohtml(n)
+       return render_template(asd)
+    except:
+       return Response("Данного файла не существует", status=400)
 
 
 if __name__ == "__main__":
